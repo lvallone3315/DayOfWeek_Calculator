@@ -11,7 +11,7 @@ package dayofweek_calculator;
  * @author pippy & Lee
  */
 public class DayOfWeek_Calculator {
-    final static String VERSION = "0.1";
+    final static String VERSION = "0.1.1";
 
     /**
      * @param args no command line args at this time
