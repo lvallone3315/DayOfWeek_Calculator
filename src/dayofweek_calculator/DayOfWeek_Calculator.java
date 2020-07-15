@@ -11,7 +11,7 @@ package dayofweek_calculator;
  * @author pippy & Lee
  */
 public class DayOfWeek_Calculator {
-    final static String VERSION = "0.2.1";
+    final static String VERSION = "0.2.2";
     final static int[] DAYS_IN_MONTHS_LEAP = new int[] {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     /**
