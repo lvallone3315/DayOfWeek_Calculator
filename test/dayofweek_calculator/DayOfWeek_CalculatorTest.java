@@ -17,10 +17,12 @@ import static org.junit.Assert.*;
 public class DayOfWeek_CalculatorTest {
     
     public DayOfWeek_CalculatorTest() {
+        // System.out.println("dayOfWeek_Calculator - Sunny Day 2020");
     }
     
     @Before
     public void setUp() {
+        
     }
     
     @After
@@ -32,55 +34,57 @@ public class DayOfWeek_CalculatorTest {
      */
     @Test
     public void testDayOfWeek_CalculatorJan01() {
-        System.out.println("dayOfWeek_Calculator");
+
         int month = 1;
         int day = 1;
-        int expResult = 3; // Wednesday
-        int result = DayOfWeek_Calculator.dayOfWeekCalculator(month, day);
-        assertEquals(expResult, result);
-        assertNotEquals(expResult, result+1);
+        String expResult = "Wednesday";
+        String result = DayOfWeek_Calculator.toString(DayOfWeek_Calculator.dayOfWeekCalculator(month, day));
+        System.out.println("Testing Jan 1 2020 - expecting Wednesday (3) - positive & neg cases");
+        assertEquals("Jan 1 = Wednesday", expResult, result);
+        assertNotEquals("Jan 1 != Wednesday", expResult, result+1);
     }
     
     @Test
     public void testDayOfWeek_Calculator228() {
-        System.out.println("Testing Feb 28");
-        assertEquals(5, DayOfWeek_Calculator.dayOfWeekCalculator(2,28));
+        System.out.println("Testing Feb 28 2020 - expecting Friday");
+        assertEquals("Feb 28 = Friday", "Friday", DayOfWeek_Calculator.toString(DayOfWeek_Calculator.dayOfWeekCalculator(2,28)));
     }
     
     @Test
     public void testDayOfWeek_Calculator229() {
-        System.out.println("Testing Feb 29");
-        assertEquals(6, DayOfWeek_Calculator.dayOfWeekCalculator(2,29));
+        System.out.println("Testing Feb 29 - expecting Saturday");
+        assertEquals("Feb 29 = Saturday", "Saturday", DayOfWeek_Calculator.toString(DayOfWeek_Calculator.dayOfWeekCalculator(2,29)));
+       
     }
     
     @Test
     public void testDayOfWeek_Calculator531() {
-        System.out.println("Testing May 31");
-        assertEquals(0, DayOfWeek_Calculator.dayOfWeekCalculator(5,31));
+        System.out.println("Testing May 31 - expecting Sunday");
+        assertEquals("May 31 = Sunday", "Sunday", DayOfWeek_Calculator.toString(DayOfWeek_Calculator.dayOfWeekCalculator(5,31)));
     }
     
     @Test
     public void testDayOfWeek_Calculator714() {
-        System.out.println("Testing July 14");
-        assertEquals(2, DayOfWeek_Calculator.dayOfWeekCalculator(7,14));
+        System.out.println("Testing July 14 - expecting Tuesday");
+        assertEquals("July 14 = Tuesday", "Tuesday", DayOfWeek_Calculator.toString(DayOfWeek_Calculator.dayOfWeekCalculator(7,14)));
     }
         
     @Test
     public void testDayOfWeek_Calculator930() {
-        System.out.println("Testing Sept 30");
-        assertEquals(3, DayOfWeek_Calculator.dayOfWeekCalculator(9,30));
+        System.out.println("Testing Sept 30 = expecting Wednesday");
+        assertEquals("Sept 30 = Wednesday", "Wednesday", DayOfWeek_Calculator.toString(DayOfWeek_Calculator.dayOfWeekCalculator(9,30)));
     }
     
     @Test
     public void testDayOfWeek_Calculator1123() {
-        System.out.println("Testing Nov 23");
-        assertEquals(1, DayOfWeek_Calculator.dayOfWeekCalculator(11,23));
+        System.out.println("Testing Nov 23, 2020 = expecting Monday");
+        assertEquals("Nov 23 = Monday", "Monday", DayOfWeek_Calculator.toString(DayOfWeek_Calculator.dayOfWeekCalculator(11,23)));
     }
     
     @Test
     public void testDayOfWeek_Calculator1231() {
-        System.out.println("Testing Dec 31");
-        assertEquals(4, DayOfWeek_Calculator.dayOfWeekCalculator(12,31));
+        System.out.println("Testing Dec 31 = expecting Thursday");
+        assertEquals("Dec 31 = Thursday", "Thursday", DayOfWeek_Calculator.toString(DayOfWeek_Calculator.dayOfWeekCalculator(12,31)));
     }
     
     /*
