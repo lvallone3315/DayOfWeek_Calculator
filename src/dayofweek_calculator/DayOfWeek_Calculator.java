@@ -13,7 +13,7 @@ package dayofweek_calculator;
  * Sunday = 0, Saturday = 6
  */
 public class DayOfWeek_Calculator {
-    final static String VERSION = "0.2.2";
+    final static String VERSION = "0.2.3";
     final static int[] DAYS_IN_MONTHS_LEAP = new int[] {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     final static String[] intToDay = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
@@ -26,7 +26,8 @@ public class DayOfWeek_Calculator {
         int month = 1;
         int day = 1;
         int year = 2020;
-        System.out.println("day " + day + " of month " + month + " is " + dayOfWeekCalculator(month, day) + " in year " + year);
+        System.out.println("day " + day + " of month " + month + " is " + 
+                toString(dayOfWeekCalculator(month, day)) + " in year " + year);
     }
     
     public static int dayOfWeekCalculator(int month, int day) 
