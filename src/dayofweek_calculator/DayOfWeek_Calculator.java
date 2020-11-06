@@ -7,8 +7,8 @@ package dayofweek_calculator;
 
 /**
  * Day of Week Calculator
- *   Returns day of week for specified month & day
- * @author pippy & Lee
+ *   Returns day of week for specified month and day
+ * @author pippy and Lee
  * 
  * Sunday = 0, Saturday = 6
  * toString() converts to English readable day of week
@@ -77,6 +77,11 @@ public class DayOfWeek_Calculator {
         return (returnValue);
     }
     
+    /**
+     * 
+     * @param dow - day of week, Sunday = 0, Saturday = 6
+     * @return - English text day of week (e.g. 0 returns "Sunday")
+     */
     public static String toString(int dow) {
         return intToDay[dow];
     }
