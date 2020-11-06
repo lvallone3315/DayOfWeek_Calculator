@@ -11,11 +11,43 @@ package dayofweek_calculator;
  * @author pippy & Lee
  * 
  * Sunday = 0, Saturday = 6
+ * toString() converts to English readable day of week
  */
+
+/*
+ *                        Design Pseudo-code
+ * Input to method:
+ * Month - 1-12 (will move to ENUM)
+ *  Day of month 1-31
+ * Data Structures:
+ *   Epoch
+ *   Year (initially 2020)
+ * Day of Week (hard coded - 0-6)
+ *
+ * Days Since Dec 31
+ *  indexed by month (0-11), month 0 = 0
+ *  fields Month (String), # of days in month (int) & number of days since start of year (int - Jan 1 = 1, Feb 1 = 32)
+ *
+ * Algorithm
+ *   Current day (#) of year = day of month + Day Of Year [month-1]   // e.g. Jan 12 = 12 + Days Since Dec31[0] = 12
+ *
+ *    Day of Week = (Epoch.Day of Week + current day (#) of year - 1)%Number of Days in a week
+ *
+ * Notes:
+ *  since Jan 1 = 1, need to subtract 1 to adjust (e.g. Jan 1 = 0 days offset from Epoch day of week)
+ *  months range = 1:12
+ * day of week range is 0:6 (could do 1-7, but then need to adjust before & after to make modulo arithmetic work
+*/
 public class DayOfWeek_Calculator {
-    final static String VERSION = "0.2.3";
+    final static String VERSION = "0.3.0";
+    // deprecated in new version
     final static int[] DAYS_IN_MONTHS_LEAP = new int[] {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
+    final static int[] DAY_OF_YEAR = new int [] {0, 31, 60, 91, 121, 152,182, 213, 244, 274, 305, 335};
     final static String[] intToDay = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    final static int EPOCH = 2020;
+    final static int DEFAULT_YEAR = 2020;
+    final static int EPOCH_DAY_WEEK = 3; // Wednesday, will subtract 1 in algorithm to adjust for Jan 1 = 0 days offset
 
     /**
      * @param args no command line args at this time
@@ -32,14 +64,8 @@ public class DayOfWeek_Calculator {
     
     public static int dayOfWeekCalculator(int month, int day) 
     {
-        int daysSinceNewYears = 0;
-        for (int index = 1; index < month; index++) 
-        {
-            daysSinceNewYears += DAYS_IN_MONTHS_LEAP[index-1];
-        }
-        daysSinceNewYears += day;
-        // int returnValue = (daysSinceNewYears % 7) + 2;
-        int returnValue = ((daysSinceNewYears+2) % 7);
+        int dayOfYear = day + DAY_OF_YEAR[month-1];
+        int returnValue = ((dayOfYear+EPOCH_DAY_WEEK-1) % 7);
         return (returnValue);
     }
     
