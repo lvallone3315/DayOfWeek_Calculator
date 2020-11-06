@@ -7,6 +7,8 @@ package dayofweek_calculator;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,8 +18,21 @@ import static org.junit.Assert.*;
  */
 public class DayOfWeek_CalculatorTest {
     
+    final static String VERSION_JUNIT = "1.0";
+    
     public DayOfWeek_CalculatorTest() {
-        // System.out.println("dayOfWeek_Calculator - Sunny Day 2020");
+        
+    }
+    
+    @BeforeClass
+    public static void setUpB4() {
+        System.out.println("Version: " + VERSION_JUNIT + " Day of Week Junit Automated test");
+        System.out.println("--- dayOfWeek_Calculator - Sunny Day 2020 ---");
+    }
+    
+    @AfterClass
+    public static void tearDownFinal() {
+        System.out.println("--- dayOfWeek_Calculator Sunny Day testing complete ---");
     }
     
     @Before
