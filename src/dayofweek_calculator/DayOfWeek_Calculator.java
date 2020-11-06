@@ -39,7 +39,7 @@ package dayofweek_calculator;
  * day of week range is 0:6 (could do 1-7, but then need to adjust before & after to make modulo arithmetic work
 */
 public class DayOfWeek_Calculator {
-    final static String VERSION = "0.3.0";
+    final static String VERSION = "0.3.1";
     // deprecated in new version
     final static int[] DAYS_IN_MONTHS_LEAP = new int[] {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     
@@ -62,6 +62,14 @@ public class DayOfWeek_Calculator {
                 toString(dayOfWeekCalculator(month, day)) + " in year " + year);
     }
     
+    /**
+     * 
+     * @param month - month # - 1 to 12
+     * @param day - day of month - 1 to 31
+     * @return - day of week, 0 = Sunday, 6 = Saturday
+     *    use toString() method to convert
+     * ToDo: add Enum for day of week
+     */
     public static int dayOfWeekCalculator(int month, int day) 
     {
         int dayOfYear = day + DAY_OF_YEAR[month-1];
